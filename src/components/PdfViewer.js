@@ -6,7 +6,8 @@ import { API_BASE_URL } from '../utils';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 
 // This worker is required for the PDF engine to run
-pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
 const PdfViewer = ({ fileUrl,signature,setSignature,userId }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
