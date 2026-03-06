@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useCallback } from 'react';
 import { toast } from 'react-toastify';
 import PdfViewer from '../components/PdfViewer';
 import SignaturePad from '../components/SignaturePad';
@@ -27,21 +27,21 @@ function Home() {
       }
   }, []);
 
-  
-  useEffect(() => {
-    const fetchHistory = async () => {
+  const fetchHistory = useCallback(async () => {
     if (userId && userId !== "guest user") {
       try {
-        const res = await fetch(`${ API_BASE_URL }/${userId}`);
+        const res = await fetch(`${API_BASE_URL}/api/my-pdfs/${userId}`);
         const data = await res.json();
         setHistory(data);
       } catch (err) {
         console.error("Error fetching history:", err);
       }
     }
-  };
-    fetchHistory();
   }, [userId]);
+
+  useEffect(() => {
+    fetchHistory();
+  }, [fetchHistory]);
 
   const uploadPdf = async (e) => {
     e.preventDefault();
