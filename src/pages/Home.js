@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import PdfViewer from '../components/PdfViewer';
 import SignaturePad from '../components/SignaturePad';
 import { useNavigate } from 'react-router-dom';
-import { handleSuccess,handleError,API_BASE_URL} from '../utils';
+import { handleSuccess,API_BASE_URL} from '../utils';
 
 
 function Home() {
@@ -27,7 +27,9 @@ function Home() {
       }
   }, []);
 
-  const fetchHistory = async () => {
+  
+  useEffect(() => {
+    const fetchHistory = async () => {
     if (userId && userId !== "guest user") {
       try {
         const res = await fetch(`${ API_BASE_URL }/${userId}`);
@@ -38,7 +40,6 @@ function Home() {
       }
     }
   };
-  useEffect(() => {
     fetchHistory();
   }, [userId]);
 
