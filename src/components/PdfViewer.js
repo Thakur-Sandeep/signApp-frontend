@@ -2,6 +2,7 @@ import React, { useState ,useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import Draggable from 'react-draggable';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../utils';
 
 
 // This worker is required for the PDF engine to run
