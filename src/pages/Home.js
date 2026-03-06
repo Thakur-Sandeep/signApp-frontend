@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import PdfViewer from '../components/PdfViewer';
 import SignaturePad from '../components/SignaturePad';
 import { useNavigate } from 'react-router-dom';
-import { handleSuccess,handleError } from '../utils';
-import { API_BASE_URL } from '../utils';
+import { handleSuccess,handleError,API_BASE_URL} from '../utils';
+
 
 function Home() {
   const [file, setFile] = useState(null);
