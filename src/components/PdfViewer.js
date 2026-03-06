@@ -3,11 +3,10 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import Draggable from 'react-draggable';
 import { toast } from 'react-toastify';
 import { API_BASE_URL } from '../utils';
-
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 
 // This worker is required for the PDF engine to run
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
-
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 const PdfViewer = ({ fileUrl,signature,setSignature,userId }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
