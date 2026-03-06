@@ -6,10 +6,7 @@ import { API_BASE_URL } from '../utils';
 
 
 // This worker is required for the PDF engine to run
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url,
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const PdfViewer = ({ fileUrl,signature,setSignature,userId }) => {
   const [numPages, setNumPages] = useState(null);
