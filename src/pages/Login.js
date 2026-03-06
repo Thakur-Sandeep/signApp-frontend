@@ -12,7 +12,6 @@ function Login() {
   const navigate=useNavigate();
   const handleChange= (e)=>{
     const {name,value} =e.target;
-    console.log(name,value);
     const copyLoginInfo={...loginInfo};
     copyLoginInfo[name]=value;
     setLoginInfo(copyLoginInfo);

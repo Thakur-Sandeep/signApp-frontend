@@ -21,7 +21,6 @@ function Home() {
   useEffect(() => {
       // Look for the MongoDB ID we just saved
       const id = localStorage.getItem('userId');
-      console.log("Current User ID from Storage:", id);
       if (id) {
           setUserId(id);
       }
