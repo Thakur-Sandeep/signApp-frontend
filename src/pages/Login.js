@@ -49,7 +49,7 @@ function Login() {
       }else if(!success){
         handleError(message);
       }
-      console.log(result);
+      
     } catch (err) {
         handleError(err)
       
