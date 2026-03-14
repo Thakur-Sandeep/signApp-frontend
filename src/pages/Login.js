@@ -57,7 +57,7 @@ function Login() {
   }
   return (
     <div className="min-h-screen w-full flex justify-center items-start pt-[50px] bg-white">
-      {/* Container replacement: shadow-2xl and bg-aliceblue */}
+      
       <div className="bg-[#f0f8ff] p-8 md:px-12 rounded-xl w-[95%] max-w-[450px] shadow-[8px_8px_24px_0px_rgba(66,68,90,1)]">
         <h1 className="text-3xl font-bold mb-5 text-gray-800">Login</h1>
         

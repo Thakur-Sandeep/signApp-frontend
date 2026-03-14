@@ -1,6 +1,5 @@
 import React, { useEffect,useRef,useState } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
-
 const SignaturePad = ({ onSave ,isPadMinimized }) => {
   const sigCanvas = useRef({});
   const [isTextMode, setIsTextMode] = useState(false);
@@ -11,8 +10,6 @@ const SignaturePad = ({ onSave ,isPadMinimized }) => {
     if (!isTextMode) {
       const canvas = sigCanvas.current?.getCanvas();
       if (canvas) {
-        // We wait a tiny bit for the Tailwind transition (300ms) to finish
-        // otherwise it calculates the size while the box is still shrinking/growing
         const timer = setTimeout(() => {
           canvas.width = canvas.offsetWidth;
           canvas.height = canvas.offsetHeight;
@@ -83,7 +80,7 @@ const SignaturePad = ({ onSave ,isPadMinimized }) => {
           <div className="w-full h-full border border-dashed border-gray-200 rounded-lg overflow-hidden bg-gray-50/50">
             <SignatureCanvas
               ref={sigCanvas}
-              penColor="black" // Deep navy blue ink
+              penColor="black"
               canvasProps={{ 
                 className: 'sigCanvas w-full h-full cursor-crosshair' 
               }}

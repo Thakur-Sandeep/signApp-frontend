@@ -19,7 +19,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-      // Look for the MongoDB ID we just saved
+      
       const id = localStorage.getItem('userId');
       if (id) {
           setUserId(id);
@@ -64,15 +64,14 @@ function Home() {
     }
   };
   const handleLogout = () => {
-        // 1. Remove all keys you set in Login.js
+        
         localStorage.removeItem('token');
         localStorage.removeItem('loggedInUser');
         localStorage.removeItem('userId');
 
-        // 2. Notify the user using your existing util
         handleSuccess('Logged out successfully');
 
-        // 3. Redirect to login
+      
         setTimeout(() => {
             navigate('/login');
         }, 1000);
@@ -81,7 +80,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
-      {/* 1. Header */}
+      
       <header className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center shadow-sm">
         <h1 className="text-xl font-bold text-blue-600 flex items-center gap-2">
           <span>🖋️</span> Sign Your Pdf
@@ -102,7 +101,7 @@ function Home() {
       </header>
 
       <main className="max-w-4xl mx-auto p-8">
-        {/* 2. Upload Section */}
+        
         {!pdfUrl && (
           <div className="bg-white border-2 border-dashed border-gray-300 rounded-2xl p-12 text-center shadow-sm">
             <div className="mb-4 text-4xl">📄</div>
@@ -127,7 +126,7 @@ function Home() {
         )}
 
 
-        {/* 4. Post-Upload Success Message */}
+        
         {pdfUrl && !showPreview && (
           <div className="bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100 animate-in fade-in zoom-in duration-300">
             <div className="text-green-500 text-5xl mb-4">✅</div>
@@ -142,10 +141,10 @@ function Home() {
           </div>
         )}
 
-        {/* 5. PDF Viewer Modal/Section */}
+        
         {showPreview && (
           <div className="fixed inset-0 z-[60] bg-gray-50 flex flex-col">
-            {/* Sub-Header / Navigation */}
+            
             <nav className="bg-white border-b border-gray-200 px-8 py-3 flex items-center justify-between shadow-sm">
               <button 
                 onClick={() => setShowPreview(false)}
@@ -159,7 +158,7 @@ function Home() {
               </div>
             </nav>
 
-            {/* Scrollable Viewer Area */}
+           
             <div className="flex-1 overflow-y-auto p-8">
               <div className="max-w-5xl mx-auto">
                 <PdfViewer 
@@ -211,7 +210,7 @@ function Home() {
       {!signature.value && (
         <div className={`fixed bottom-8 right-8 z-[100] bg-white/95 backdrop-blur-sm rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-gray-100 transition-all duration-300 ${isPadMinimized ? 'w-[200px]' : 'w-[400px]'}`}>
   
-          {/* Move Padding here (p-6) only for the Header */}
+         
           <div className="p-6">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
@@ -231,7 +230,7 @@ function Home() {
             </div>
           </div>
 
-          {/* NO PADDING on this container for the canvas */}
+          
           {!isPadMinimized && (
             <div key={`${pdfUrl}-${isPadMinimized}`} className="animate-in fade-in duration-300 px-6 pb-6">
               <div className="border border-gray-200 rounded-lg overflow-hidden">
